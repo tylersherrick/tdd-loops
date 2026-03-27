@@ -12,6 +12,11 @@
  */
 export function echo(word, n) {
   // TODO
+  let result = "";
+  for(let i = 1; i <= n; i++) {
+    result += word;
+  }
+  return result;
 }
 
 /**
@@ -27,7 +32,14 @@ export function echo(word, n) {
  * echoWithSpace("test", 1); // "test"
  */
 export function echoWithSpace(word, n) {
-  // TODO
+  if(n <= 0) return "";
+  if(!word) return "";
+  let result = word;
+  
+  for (let i = 1; i < n; i++) {
+    result += " " + word;
+  }
+  return result;
 }
 
 /**
