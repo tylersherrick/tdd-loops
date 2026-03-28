@@ -13,7 +13,7 @@
 export function echo(word, n) {
   // TODO
   let result = "";
-  for(let i = 1; i <= n; i++) {
+  for(let i = 0; i < n; i++) {
     result += word;
   }
   return result;
@@ -32,12 +32,19 @@ export function echo(word, n) {
  * echoWithSpace("test", 1); // "test"
  */
 export function echoWithSpace(word, n) {
-  if(n <= 0) return "";
-  if(!word) return "";
-  let result = word;
-  
-  for (let i = 1; i < n; i++) {
-    result += " " + word;
+  let result = "";
+  if(n === 1) {
+    return word;
+  }
+  if(!word || n === 0 || n < 0) {
+    return "";
+  }
+  for(let i = 0; i < n; i++) {
+    if(i < n - 1) {
+      result += `${word} `;
+    } else {
+      result += word;
+    }
   }
   return result;
 }
@@ -55,6 +62,17 @@ export function echoWithSpace(word, n) {
  */
 export function sumTo(n) {
   // TODO
+  if(n === 1) {
+    return 1;
+  }
+  if(n <= 0) {
+    return 0;
+  }
+  let total = 0;
+  for(let i = 0; i <= n; i++) {
+    total += i;
+  }
+  return total;
 }
 
 /**
@@ -71,6 +89,18 @@ export function sumTo(n) {
  */
 export function sumFromTo(a, z) {
   // TODO
+  if(a === z) {
+    return a;
+  }
+  if(a > z) {
+    return 0;
+  }
+  let total = 0;
+  for(let i = 0; a <= z; i++) {
+    total += a;
+    a++;
+  }
+  return total;
 }
 
 /**
@@ -86,6 +116,9 @@ export function sumFromTo(a, z) {
  */
 export function countdown(n) {
   // TODO
+  for(let i = n; i > 0; i--) {
+    console.log(i);
+  }
 }
 
 /**
@@ -101,6 +134,13 @@ export function countdown(n) {
  */
 export function sumOddsToN(n) {
   // TODO
+  let total = 0;
+  for(let i = 0; i <= n; i++) {
+    if(i % 2 !== 0) {
+      total += i;
+    }
+  }
+  return total;
 }
 
 /**
