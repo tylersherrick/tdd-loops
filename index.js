@@ -161,6 +161,15 @@ export function sumOddsToN(n) {
  */
 export function getGrowthTime(start, target) {
   // TODO
+  if(start <= 0) {
+    return ;
+  }
+  let total = 0;
+  for(let i = 0; start < target; i++) {
+    start += start;
+    total++;
+  }
+  return total * 20;
 }
 
 /**
@@ -180,7 +189,13 @@ export function getGrowthTime(start, target) {
  * getCompoundTime(30000, 0.04, 50000); // 14
  */
 export function getCompoundTime(start, rate, target) {
-  // TODO
+  if (rate <= 0 || start <= 0) return ;
+  let years = 0;
+  while (start < target) {
+    start *= 1 + rate;
+    years++;
+  }
+  return years;
 }
 
 /**
@@ -207,6 +222,7 @@ export function getCompoundTime(start, rate, target) {
  */
 export function moveWater(colander, bucket) {
   // TODO
+  
 }
 
 /**
