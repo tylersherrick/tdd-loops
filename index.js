@@ -222,7 +222,25 @@ export function getCompoundTime(start, rate, target) {
  */
 export function moveWater(colander, bucket) {
   // TODO
-  
+  if(bucket <= 0) {return 0}
+  if(colander <= 0) {return}
+  if(colander >= bucket) {return 1}
+  if(colander === 1) {return bucket}
+  let trips = 0;
+  let total = 0;
+  while(total < bucket) {
+    if(colander < 1) {
+      colander = 1;
+      total += colander;
+      trips++;
+      colander--;
+    } else {
+      total += colander;
+      trips++;
+      colander--;
+    }
+  }
+  return trips;
 }
 
 /**
@@ -243,4 +261,16 @@ export function moveWater(colander, bucket) {
  */
 export function fizzbuzz(n) {
   // TODO
+  for(let i = 1; i <= n; i++) {
+    if(i % 3 === 0 && i % 5 === 0) {
+      console.log("fizzbuzz");
+    }
+    else if(i % 3 === 0) {
+      console.log("fizz");
+    }
+    else if(i % 5 === 0) {
+      console.log("buzz");
+    }
+    else {console.log(i);}
+  }
 }
